@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #dcfae6;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #279c40;
+        }
+        
+        li {
+            float: left;
+        }
+        
+        .dropdown > span, li a {
+            display: block;
+            padding: 5px 10px 5px 10px;
+            text-decoration: none;
+        }
+
+        .dropdown > span {
+            font-size: 1.11em;
+            width: 100px;
+        }
+
+        .dropdown-content {
+            display: none; /*doesn't show until hovered over*/
+            position: fixed;
+            width: 100px;
+            
+        }
+
+        .dropdown-content a:hover {
+            background-color: #27ff40;
+        }
+
+        li:hover {
+            background-color: #27c440;
+        }
+
+        li:hover .dropdown-content {
+            display: block;
+            background-color: #27c440;
+        }
+
+        .note{
+            background-color: white;
+            margin: 1.6em;
+        }
+
+        .note > h3 {
+            padding: 14.5px;
+        }
+
+        .note > p {
+            padding: 0 14.5px 32px 14.5px;
+        }
+
+        .green {
+            border-left: 5px solid #27c440;
+        }
+
+        .yellow {
+            border-left: 5px solid #f5f550;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="dropdown">
+            <span class="file"><strong>File</strong></span>
+            <div class="dropdown-content">
+                <a href="#">New</a>
+                <a href="#">Open</a>
+                <a href="#">Save</a>
+                <a href="#">Print</a>
+                <a href="#">Close</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <span class="edit">Edit</span>
+            <div class="dropdown-content">
+                <a href="#">Undo</a>
+                <a href="#">Redo</a>
+                <a href="#">Cut</a>
+                <a href="#">Copy</a>
+                <a href="#">Paste</a>
+                <a href="#">Delete</a>
+                <a href="#">Select All</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <span class="view"><strong>View</strong></span>
+            <div class="dropdown-content">
+                <a href="#">Zoom In</a>
+                <a href="#">Zoom Out</a>
+                <a href="#">Actual Size</a>
+                <a href="#">Fit Page</a>
+                <a href="#">Fit Width</a>
+                <a href="#">Fit Height</a>
+                <a href="#">Rotate Left</a>
+                <a href="#">Rotate Right</a>
+                <a href="#">Full Screen</a>
+            </div>
+        </li>
+    </ul>
+
+    <div class="green note">
+        <h3>Instructions</h3>
+        <p>Recreate this page using <i><b>only CSS</b></i>. Do yourself a favor and 1) Do not view the source. Figure it out yourself. 2) Do not search for the solution. Learn CSS until you know enough to do this.
+    </div>
+
+    <div class="yellow note">
+        <h3>Extra Credit</h3>
+        <p>Notice how the Edit menu (besides for not being bold) reacts to clicks. If you click the edit menu, it remains open until you click somewhere else. (This you might need to search for)</p>
+    </div>
+</body>
+</html>
