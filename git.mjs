@@ -15,7 +15,7 @@ let args = process.argv; //process.argv is an array
 //args.splice(0,2); //get rid of node git.js from the array; and store the arguments
 let str = args.slice(2).join(' ');
 
-console.log("\nCommit message: " + str + "\n");
+console.log("Commit message: " + str);
 
 exec('git add .', cbadd);
 
