@@ -1,4 +1,6 @@
 @import 'bulma/css/bulma.css';
 @import '@fortawesome/fontawesome-free/css/all.css';
 
-/*C:\Users\jonnb\OneDrive\Desktop\WebServerProgramming\web-dev-spring-2023\client\node_modules\bulma\css\bulma.css;*/
+.is-dark-blue {
+    background-color: #2D1E2F;
+}
