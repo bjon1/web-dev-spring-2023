@@ -1,7 +1,23 @@
 @import 'bulma/css/bulma.css';
 @import '@fortawesome/fontawesome-free/css/all.css';
 
+$hero-body-padding-medium: 7rem 4rem;
+
 .margin-big {
-    margin-left: 9em;
-    margin-right: 9em;
+    margin-left: 5em;
+    margin-right: 5em;
+}
+
+.logo {
+    transform: scale(1.7);
+    margin-left: 4em;
+    margin-top: 0.5em;
+}
+
+
+@media(max-device-width: 1000px) {
+    .margin-big {
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+    }
 }

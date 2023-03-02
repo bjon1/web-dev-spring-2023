@@ -1,15 +1,11 @@
 <script setup lang="ts">
   import { RouterView } from 'vue-router'
-  import HomeHero from './components/HomeHero.vue';
+  import NavBar from './components/NavBar.vue';
 </script>
 
 <template>
-  <HomeHero />
-  <NavBar />
-  <div class="container">
+    <NavBar />
     <RouterView />
-  </div>
-
 </template>
 
 <style scoped>

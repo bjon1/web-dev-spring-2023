@@ -5,14 +5,13 @@
 </script>
 
 <template>
-<nav class="navbar is-spaced is-transparent"> <!--#2D1E2F-->
+<nav class="navbar is-spaced is-link"> <!--#2D1E2F-->
     <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-            <img src="https://bulma.io/images/bulma-logo-white.png" width="112" height="28">
+        <a class="navbar-item logo" href="/">
+            <img src="../assets/eLogger-black.png" class="scale-down">
         </a>
 
         <a class="navbar-burger">
-
         </a>
 
     </div>
