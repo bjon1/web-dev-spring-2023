@@ -1,6 +1,7 @@
 @import 'bulma/css/bulma.css';
 @import '@fortawesome/fontawesome-free/css/all.css';
 
-.is-dark-blue {
-    background-color: #2D1E2F;
+.margin-big {
+    margin-left: 9em;
+    margin-right: 9em;
 }
