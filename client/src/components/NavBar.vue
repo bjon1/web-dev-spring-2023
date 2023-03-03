@@ -1,7 +1,13 @@
 <script setup lang="ts">
     //import Router Link
     import { RouterLink } from 'vue-router';
-    const isMenuActive=false;
+    import { ref } from 'vue';
+
+    let isMenuActive = ref(false);
+
+    function toggleMenu() {
+      isMenuActive.value = !isMenuActive.value;
+    }
 </script>
 
 <template>
@@ -11,11 +17,14 @@
             <img src="../assets/eLogger-black.png" class="scale-down">
         </a>
 
-        <a class="navbar-burger">
+        <a class="navbar-burger is-active" data-target="navMenu" :class="{'is-active': isMenuActive}" @click="toggleMenu">
+          <span></span>
+          <span></span>
+          <span></span>
         </a>
 
     </div>
-    <div class="navbar-menu">
+    <div class="navbar-menu" id="navMenu">
         <div class="navbar-start">
 
         </div>
