@@ -14,16 +14,18 @@
     function toggleMenu() {
       isMenuActive.value = !isMenuActive.value;
     }
-    
+
     function checkLogin() {
-        let email = this.$refs.email.value;
-        let password = this.$refs.password.value;
+        let email = this.email.value;
+        let password = this.password.value;
 
         if(email == "jonb1@newpaltz.edu" && password == "webdev"){
             let loginData = {
                 name: email
             }
+            isModalActive.value = false;
             login(loginData);
+
         }
     }
 
@@ -50,7 +52,7 @@
         </div>
     </div>
 
-    <div class="navbar-end" v-if="!session.user">
+    <div class="navbar-end" v-if="session.user == null">
         <RouterLink to="/" class="navbar-item">Home</RouterLink>
         <RouterLink to="/services" class="navbar-item">Services</RouterLink>
         <RouterLink to="/about" class="navbar-item">About</RouterLink>
