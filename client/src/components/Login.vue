@@ -1,9 +1,12 @@
 <script setup lang="ts">
+
+
+
 </script>
 
 <template>
 
-    <div class="modal" id="signup">
+    <div class="modal" :class="{ 'is-active': showModal }" id="signup">
         <div class="modal-background"></div>
         <div class="modal-content">
             <form action="" class="box">
