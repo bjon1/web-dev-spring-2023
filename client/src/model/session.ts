@@ -1,13 +1,12 @@
-import {reactive } from "vue";
-//global session
+import { reactive } from "vue";
 
 const session = reactive({
-    user: null as User | null;
+    user: null as User | null
 });
 
 interface User {
-    id?: number; //question mark makes the attribute optional
-    name: string;  
+    id?: number;
+    name: string;
     email?: string;
     photo?: string;
     token?: string;
@@ -15,10 +14,10 @@ interface User {
 
 export function useSession() {
     return session;
-} //composables are functions that return reactive variables
+}
 
-export function login(){
+export function login(loginData: {name: string}) {
     session.user = {
-        name: "John Doe";
+        name: loginData.name
     }
 }

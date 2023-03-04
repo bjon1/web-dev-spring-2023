@@ -2,13 +2,31 @@
     //import Router Link
     import { RouterLink } from 'vue-router';
     import { ref } from 'vue';
+    import { useSession, login } from '@/model/session';
+    import type { Ref } from '@vue/runtime-core';
 
+    const session = useSession();
     let isMenuActive = ref(false);
     let isModalActive = ref(false);
+    const email: Ref<HTMLInputElement | undefined> = ref(undefined);
+    const password: Ref<HTMLInputElement | undefined> = ref(undefined);
 
     function toggleMenu() {
       isMenuActive.value = !isMenuActive.value;
     }
+    
+    function checkLogin() {
+        let email = this.$refs.email.value;
+        let password = this.$refs.password.value;
+
+        if(email == "jonb1@newpaltz.edu" && password == "webdev"){
+            let loginData = {
+                name: email
+            }
+            login(loginData);
+        }
+    }
+
 </script>
 
 <template>
@@ -32,13 +50,40 @@
         </div>
     </div>
 
-    <div class="navbar-end">
+    <div class="navbar-end" v-if="!session.user">
         <RouterLink to="/" class="navbar-item">Home</RouterLink>
         <RouterLink to="/services" class="navbar-item">Services</RouterLink>
         <RouterLink to="/about" class="navbar-item">About</RouterLink>
         <RouterLink to="/contact" class="navbar-item">Contact</RouterLink>
+        <div class="navbar-item">
+        <div class="buttons">
+            <a class="button is-danger is-rounded">
+            <strong>Sign up</strong>
+            </a>
+            <a class="button is-light is-rounded" @click="isModalActive=true">
+            Log in
+            </a>
+        </div>
+        </div>
+    </div>
 
-        <!-- This stuff will be shown once the user logs in
+    <div class="navbar-end" v-else>
+        <RouterLink to="/" class="navbar-item">Home</RouterLink>
+        <RouterLink to="/services" class="navbar-item">Services</RouterLink>
+        <RouterLink to="/about" class="navbar-item">About</RouterLink>
+        <RouterLink to="/contact" class="navbar-item">Contact</RouterLink>
+        <div class="navbar-item">
+            Welcome, {{ session.user.name }}
+        <div class="buttons">
+            <a class="button is-danger is-rounded" @click = "session.user = null">
+            <strong>Sign out</strong>
+            </a>
+        </div>
+        </div>
+    </div>
+  </nav>
+
+  <!-- This stuff will be shown once the user logs in
         <div class="navbar-item has-dropdown is-hoverable">
             <a class ="navbar-link">
                 My Statistics
@@ -57,29 +102,17 @@
             </a>       
         -->
 
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-danger is-rounded">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light is-rounded" @click="isModalActive=true">
-            Log in
-          </a>
-        </div>
-      </div>
-    </div>
-  </nav>
 
 
   <!--Login screen-->
 <div class="modal" :class="{ 'is-active': isModalActive }" id="signup">
   <div class="modal-background"></div>
   <div class="modal-content">
-      <form action="" class="box">
+      <form @submit.prevent="() => checkLogin()" class="box">
           <div class="column field">
               <label for="" class="label">Email</label>
               <div class="control has-icons-left">
-                  <input type="email" placeholder="Enter your email" class="input" required>
+                  <input type="email" placeholder="Enter your email" class="input" required ref="email">
                   <span class="icon is-small is-left">
                       <i class="fa fa-envelope"></i>
                   </span>
@@ -88,7 +121,7 @@
           <div class="column field">
               <label for="" class="label">Password</label>
               <div class="control has-icons-left">
-                  <input type="password" placeholder="Enter your password" class="input" required>
+                  <input type="password" placeholder="Enter your password" class="input" required ref="password">
                   <span class="icon is-small is-left">
                       <i class="fa fa-lock"></i>
                   </span>
