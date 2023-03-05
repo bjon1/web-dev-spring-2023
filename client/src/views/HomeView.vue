@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <section class="hero is-link is-medium">
+    <section class="hero is-link is-medium" id="hero">
         
         <div class="hero-head">
           
@@ -14,6 +14,7 @@
                 <div class="column">
                     <h1 class="title is-1 is-spaced"><b>eLogger:</b> The <b>best</b> way to track <b>all</b> of your <b>habits</b></h1>
                     <div class="subtitle is-3">All in one place.</div>
+                    <a href="http://www.freepik.com">Designed by pch.vector / Freepik</a>
                     <!--<div class="subtitle is-3 is-spaced"></div>-->
                 </div>
                 <div class="column">
