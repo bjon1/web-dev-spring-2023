@@ -1,21 +1,24 @@
 <script setup lang="ts">
     //import Router Link
-    import { RouterLink } from 'vue-router';
+    import { RouterLink, useRouter } from 'vue-router';
     import { ref } from 'vue';
     import { useSession, login } from '@/model/session';
     import type { Ref } from '@vue/runtime-core';
+    import { computed } from 'vue';
+    
+    import logoBlack from '../assets/eLogger-logo-black.png';
+    import logoWhite from '../assets/eLogger-logo.png'; 
+
+    const router = useRouter();
+
+    function logoChooser() {
+        return session.user == null ? logoWhite : logoBlack;
+    }
 
     const session = useSession();
     let isMenuActive = ref(false);
     let isModalActive = ref(false);
     let isInvalidForm = ref(false);
-
-    const logoImages = [
-    "../assets/eLogger-logo.png",
-    "../assets/eLogger-logo-black.png"
-    ];
-    let logoImage = ref(logoImages[0]);
-
     
     const email: Ref<HTMLInputElement | undefined> = ref(undefined);
     const password: Ref<HTMLInputElement | undefined> = ref(undefined);
@@ -33,6 +36,7 @@
                 name: 'Benjamin'
             }
             isModalActive.value = false;
+            router.push('/stats');
             login(loginData); //set the session data
         } else {
             isInvalidForm.value = true;
@@ -44,11 +48,11 @@
 </script>
 
 <template>
-<nav class="navbar" :class="{'is-link': session.user == null, 'is-spaced': session.user == null}"> <!--#2D1E2F-->
+<nav class="navbar is-spaced" :class="{'is-link': session.user == null}"> <!--#2D1E2F--> <!--'is-spaced': session.user == null-->
     <div class="navbar-brand" style="padding-bottom: 0.5em">
         <a class="navbar-item logo" href="/">
-            <img :src="session.user == null ? '../assets/eLogger-logo.png' : '../assets/eLogger-logo-black.png'" style="margin-right: 0.3em;">
-            <div class="subtitle is-5 has-text-white">ELOGGER</div>
+            <img :src="logoChooser()" style="margin-right: 0.3em;">
+            <div class="subtitle is-5" :class="{'has-text-white': session.user == null}">ELOGGER</div>
         </a>
         <a class="navbar-burger" data-target="navMenu" :class="{'is-active': isMenuActive}" @click="toggleMenu">
           <span></span>
@@ -91,16 +95,14 @@
                     </a>
                 </div>
             </div>
-            <a class="navbar-item">
-                <RouterLink to="/friends" class="navbar-item">Friends</RouterLink>
-            </a>       
+            <RouterLink to="/friends" class="navbar-item">Friends</RouterLink>    
             <div class="navbar-item">
                 Welcome, {{ session.user.name }}!
+            </div>
             <div class="buttons navbar-item">
                 <a class="button is-danger is-rounded" @click = "session.user = null">
                 <strong>Sign out</strong>
                 </a>
-            </div>
             </div>
         </div>
     </div>

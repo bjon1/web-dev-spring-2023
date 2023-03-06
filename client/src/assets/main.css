@@ -19,6 +19,10 @@ $hero-body-padding-medium: 7rem 4rem;
     padding-left: 2em;
 }
 
+.navbar {
+    border-bottom: 2px solid #eee;
+}
+
 
 @media(max-device-width: 1000px) {
     .margin-big {
