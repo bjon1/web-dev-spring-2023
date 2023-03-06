@@ -19,6 +19,19 @@
     let isMenuActive = ref(false);
     let isModalActive = ref(false);
     let isInvalidForm = ref(false);
+    let isLoggedIn = ref(false);
+
+    function currentView() { //const currentView = computed(() => isLoggedIn.value ? 'LoggedIn' : 'LoggedOut')
+        return isLoggedIn.value ? 'LoggedIn' : 'LoggedOut';
+    }
+    
+    const LoggedIn = {
+        template: '<div>Logged In Content</div>'
+    }
+
+    const LoggedOut = {
+        template: '<div>Logged Out Content</div>'
+    }
     
     const email: Ref<HTMLInputElement | undefined> = ref(undefined);
     const password: Ref<HTMLInputElement | undefined> = ref(undefined);
@@ -48,7 +61,7 @@
 </script>
 
 <template>
-<nav class="navbar is-spaced" :class="{'is-link': session.user == null}"> <!--#2D1E2F--> <!--'is-spaced': session.user == null-->
+<nav class="navbar is-spaced" :class="{'is-link': session.user == null, 'nav-border': session.user != null}"> <!--#2D1E2F--> <!--'is-spaced': session.user == null-->
     <div class="navbar-brand" style="padding-bottom: 0.5em">
         <a class="navbar-item logo" href="/">
             <img :src="logoChooser()" style="margin-right: 0.3em;">

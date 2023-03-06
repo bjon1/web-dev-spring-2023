@@ -19,10 +19,9 @@ $hero-body-padding-medium: 7rem 4rem;
     padding-left: 2em;
 }
 
-.navbar {
+.nav-border {
     border-bottom: 2px solid #eee;
 }
-
 
 @media(max-device-width: 1000px) {
     .margin-big {
@@ -31,16 +30,16 @@ $hero-body-padding-medium: 7rem 4rem;
     }
 
     #hero {
-        padding-top: 25px;
-        padding-bottom: 25px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         background-position-x: center;
         background-size: cover;
     }
 }
 
 #hero {
-    padding-top: 45px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 45px;
     background-position-x: center;
     background-size: cover;
 }
