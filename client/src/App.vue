@@ -6,7 +6,6 @@
 <template>
     <NavBar />
     <RouterView />
-    <Login />
 </template>
 
 <style scoped>
