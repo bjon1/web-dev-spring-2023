@@ -25,11 +25,18 @@ $hero-body-padding-medium: 7rem 4rem;
         margin-left: 1.5em;
         margin-right: 1.5em;
     }
+
+    #hero {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        background-position-x: center;
+        background-size: cover;
+    }
 }
 
 #hero {
-    background: url('https://github.com/bjon1/web-dev-spring-2023/blob/main/client/src/assets/couple-exercising.jpg');
+    padding-top: 45px;
+    padding-bottom: 50px;
     background-position-x: center;
     background-size: cover;
-    
 }

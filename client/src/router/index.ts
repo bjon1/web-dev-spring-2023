@@ -33,7 +33,39 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/ContactView.vue')
-    }      
+    },
+    {
+      path: '/stats',
+      name: 'stats',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/StatsView.vue')
+    },
+    {
+      path: '/exercise',
+      name: 'exercise',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ExerciseView.vue')
+    },
+    {
+      path: '/list',
+      name: 'To-Do List',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ToDoView.vue')
+    },
+    {
+      path: '/friends',
+      name: 'friends',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/FriendsView.vue')
+    }
   ]
 })
 

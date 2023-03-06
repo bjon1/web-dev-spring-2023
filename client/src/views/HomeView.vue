@@ -3,26 +3,26 @@
 </script>
 
 <template>
-    <section class="hero is-link is-medium" id="hero">
+    <section class="hero is-link is-medium">
         
         <div class="hero-head">
           
         </div>
 
-        <div class="hero-body">
+        <div class="hero-body" id="hero">
             <div class="columns margin-big">
                 <div class="column">
                     <h1 class="title is-1 is-spaced"><b>eLogger:</b> The <b>best</b> way to track <b>all</b> of your <b>habits</b></h1>
                     <div class="subtitle is-3">All in one place.</div>
-                    <a href="http://www.freepik.com">Designed by pch.vector / Freepik</a>
+                    <a href="http://www.freepik.com">Image designed by pch.vector / Freepik</a>
                     <!--<div class="subtitle is-3 is-spaced"></div>-->
                 </div>
                 <div class="column">
-
+                    <img src='../assets/couple-mountains.png' style="transform: scale(1.2)">
                 </div>
             </div>
         </div>
-
+        
         <div class="hero-foot">
         </div>
 

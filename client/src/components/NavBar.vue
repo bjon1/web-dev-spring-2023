@@ -9,6 +9,14 @@
     let isMenuActive = ref(false);
     let isModalActive = ref(false);
     let isInvalidForm = ref(false);
+
+    const logoImages = [
+    "../assets/eLogger-logo.png",
+    "../assets/eLogger-logo-black.png"
+    ];
+    let logoImage = ref(logoImages[0]);
+
+    
     const email: Ref<HTMLInputElement | undefined> = ref(undefined);
     const password: Ref<HTMLInputElement | undefined> = ref(undefined);
 
@@ -25,7 +33,7 @@
                 name: 'Benjamin'
             }
             isModalActive.value = false;
-            login(loginData);
+            login(loginData); //set the session data
         } else {
             isInvalidForm.value = true;
             email.value = '';
@@ -39,7 +47,7 @@
 <nav class="navbar" :class="{'is-link': session.user == null, 'is-spaced': session.user == null}"> <!--#2D1E2F-->
     <div class="navbar-brand" style="padding-bottom: 0.5em">
         <a class="navbar-item logo" href="/">
-            <img src="../assets/eLogger-logo.png" style="margin-right: 0.3em;">
+            <img :src="session.user == null ? '../assets/eLogger-logo.png' : '../assets/eLogger-logo-black.png'" style="margin-right: 0.3em;">
             <div class="subtitle is-5 has-text-white">ELOGGER</div>
         </a>
         <a class="navbar-burger" data-target="navMenu" :class="{'is-active': isMenuActive}" @click="toggleMenu">
@@ -72,19 +80,19 @@
         <div class="navbar-end" v-else> <!-- This stuff will be shown once the user logs in -->
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class ="navbar-link">
-                    My Statistics
+                    <RouterLink to="/stats" class="navbar-item">My Statistics</RouterLink>
                 </a>
                 <div class="navbar-dropdown">
                     <a href="" class="navbar-item">
-                        Cardio
+                        <RouterLink to="/exercise" class="navbar-item">Exercise</RouterLink>
                     </a>
                     <a href="" class="navbar-item">
-                        Weights
+                        <RouterLink to="/list" class="navbar-item">Habits</RouterLink>
                     </a>
                 </div>
             </div>
             <a class="navbar-item">
-                My Friends
+                <RouterLink to="/friends" class="navbar-item">Friends</RouterLink>
             </a>       
             <div class="navbar-item">
                 Welcome, {{ session.user.name }}!
