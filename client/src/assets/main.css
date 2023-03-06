@@ -4,42 +4,7 @@
 $hero-body-padding-medium: 7rem 4rem;
 
 
-.margin-big {
-    margin-left: 5em;
-    margin-right: 5em;
-}
 
-.logo {
-    transform: scale(1.7);
-    margin-left: 4em;
-    margin-top: 0.5em;
-}
 
-.menu {
-    padding-left: 2em;
-}
 
-.nav-border {
-    border-bottom: 2px solid #eee;
-}
 
-@media(max-device-width: 1000px) {
-    .margin-big {
-        margin-left: 1.5em;
-        margin-right: 1.5em;
-    }
-
-    #hero {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        background-position-x: center;
-        background-size: cover;
-    }
-}
-
-#hero {
-    padding-top: 20px;
-    padding-bottom: 45px;
-    background-position-x: center;
-    background-size: cover;
-}

@@ -16,7 +16,7 @@ export function useSession() {
     return session;
 }
 
-export function login(loginData: {name: string}) {
+export function setLogin(loginData: {name: string}) {
     session.user = {
         name: loginData.name
     }

@@ -39,4 +39,17 @@
 
 
 
-<style scoped></style>
+<style scoped>
+.margin-big {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+#hero {
+    padding-top: 20px;
+    padding-bottom: 45px;
+    background-position-x: center;
+    background-size: cover;
+}
+
+</style>
