@@ -1,4 +1,4 @@
-import data from "../data/products.json"
+import data from "../../data/products.json";
 
 export interface Product {
     id: number;
@@ -8,12 +8,12 @@ export interface Product {
     discountPercentage: number;
     rating: number;
     stock: number;
-    brand: StorageManager;
+    brand: string;
     category: string;
     thumbnail: string;
     images: string[];
 }
 
 export function getProducts(): Product[] {
-    return data;
+    return data.products;
 }

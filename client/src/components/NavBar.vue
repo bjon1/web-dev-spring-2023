@@ -113,7 +113,8 @@
                     <RouterLink to="/list" class="navbar-item">Habits</RouterLink>
                 </div>
             </div>
-            <RouterLink to="/friends" class="navbar-item">Friends</RouterLink>    
+            <RouterLink to="/friends" class="navbar-item">Friends</RouterLink>
+            <RouterLink to="/products" class="navbar-item">Products</RouterLink>    
             <div class="navbar-item" v-if="session.user != null">
                 Welcome, {{ session.user.name }}!
             </div>

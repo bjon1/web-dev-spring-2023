@@ -20,6 +20,14 @@ const router = createRouter({
       component: () => import('../views/ServicesView.vue') //is only called if someone clicks on it
     },
     {
+      path: '/products',
+      name: 'products',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ProductsView.vue') //is only called if someone clicks on it
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
@@ -70,7 +78,7 @@ const router = createRouter({
   ]
 })
 
-let loggedInPages = ['stats', 'exercise', 'list', 'friends'];
+let loggedInPages = ['stats', 'exercise', 'list', 'friends', 'products'];
 
 router.beforeEach((to, from) => {
   const session = useSession();
