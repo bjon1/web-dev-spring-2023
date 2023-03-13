@@ -23,7 +23,9 @@
         if(bool){
             router.push('/stats');
         } else {
+            session.user = null;
             router.push('/');
+            console.log(session.user);
         }
         return isLoggedIn;
     }
@@ -46,14 +48,6 @@
         }
     }
 
-
-function beforeRouteEnter(to: any, from: any, next: any) {
-throw new Error('Function not implemented.');
-}
-
-function next() {
-throw new Error('Function not implemented.');
-}
 </script>
 
 <template>

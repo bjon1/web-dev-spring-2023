@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue' 
+import HomeView from '../views/HomeView.vue';
+import { useSession } from '@/model/session';
 //we don't do this for every component, because it would increase the loading speed of the page
 
 const router = createRouter({
@@ -52,7 +53,7 @@ const router = createRouter({
     },
     {
       path: '/list',
-      name: 'To-Do List',
+      name: 'list',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -67,6 +68,16 @@ const router = createRouter({
       component: () => import('../views/FriendsView.vue')
     }
   ]
+})
+
+let loggedInPages = ['stats', 'exercise', 'list', 'friends'];
+
+router.beforeEach((to, from) => {
+  const session = useSession();
+  //if you're: 1) not logged in and want to go to a "logged in page" or 2) logged in and want to go to a "not logged in page"
+  if(!session.user && loggedInPages.includes(String(to.name)) || session.user && !loggedInPages.includes(String(to.name))) {
+    return false;
+  }
 })
 
 export default router
